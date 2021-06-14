@@ -8,14 +8,13 @@
 import UIKit
 import PinLayout
 
-
-
 private var url = "https://pryaniky.com/static/json/sample.json"
 
 class MainViewController: UIViewController {
 
 
     private var data = [GlobalData]()
+    private var dataToShow = [String]()
     
    private let dataTableView: UITableView = {
        let tableView = UITableView()
@@ -33,6 +32,21 @@ class MainViewController: UIViewController {
         setupTableView()
 
         fetchDataForCells()
+
+        
+    }
+    
+    func compare() {
+        let numberOfCells = dataToShow.count
+        
+        
+        for i in 0...numberOfCells - 1 {
+        if self.data[i].name == dataToShow[i] {
+            print("ok")
+        }
+        }
+        
+        // тут сравнивать датату шоу и обычную дату и менять местами если что
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +65,14 @@ class MainViewController: UIViewController {
     }
     
     private func fetchDataForCells() {
-        NetworkManager.fetchData(url: url) { (data) in
-            self.data = data
+        NetworkManager.fetchData(url: url) {  (data) in
+            self.dataToShow = data.view
+            self.data = data.data
+            
             DispatchQueue.main.async {
                 self.dataTableView.reloadData()
             }
+   
         }
     }
     
@@ -93,7 +110,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return data.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,6 +118,7 @@ extension MainViewController: UITableViewDataSource {
             return .init()
         }
         cell.configure(with: data[indexPath.row].name)
+        
         return cell
     }
     
@@ -116,22 +134,21 @@ extension MainViewController: UITableViewDataSource {
         case "picture":
             navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
         case "selector":
-            print("selector")
-            
-        
+   
+
             guard let variants = chosenData.data.variants else { return }
             let numberOfVariants = variants.count
 
             let alertController = UIAlertController(title: "Выберете опцию", message: nil, preferredStyle: .actionSheet)
-            
+
             for variantNumber in 0...numberOfVariants - 1 {
                 let variantId = String(variantNumber + 1)
                 alertController.addAction(UIAlertAction(title: variantId, style: .default, handler: { _ in
                     self.navigationController?.pushViewController(DetailViewController(title: variantId, text: variants[variantNumber].text ?? "", imageURL: nil), animated: true)
                 }))
-                
+
             }
-            
+
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             present(alertController, animated: true, completion: nil)
@@ -140,8 +157,8 @@ extension MainViewController: UITableViewDataSource {
         }
     }
   
-    
-}
+    }
+
 
 extension MainViewController: UITableViewDelegate {
     

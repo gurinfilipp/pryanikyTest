@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
 
@@ -61,13 +62,13 @@ class DetailViewController: UIViewController {
     
     func setupLogoImageView(with url: String) {
         view.addSubview(logoImageView)
-        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.kf.setImage(with: URL(string: url))
         
-        NetworkManager.fetchImage(url: self.imageURL ?? "") { (image) in
-            self.logoImageView.image = image
-        }
-        
-        
+//        logoImageView.contentMode = .scaleAspectFit
+//
+//        NetworkManager.fetchImage(url: self.imageURL ?? "") { (image) in
+//            self.logoImageView.image = image
+//        }
         
     }
     

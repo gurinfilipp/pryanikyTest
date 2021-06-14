@@ -14,7 +14,7 @@ class NetworkManager {
     
     private init() {}
     
-    static func fetchData(url: String, completion: @escaping(_ data: [GlobalData]) -> ()) {
+    static func fetchData(url: String, completion: @escaping(_ data: GlobalJsonData) -> ()) {
         guard let url = URL(string: url) else { return }
         let urlSession = URLSession.shared
         urlSession.dataTask(with: url) { (data, _, error) in
@@ -22,9 +22,8 @@ class NetworkManager {
           
                 do {
                     let json = try JSONDecoder().decode(GlobalJsonData.self, from: data)
-                    //self.data = json.data
-                    completion(json.data)
-                    //
+                    
+                    completion(json)
                     
                     
                 } catch {

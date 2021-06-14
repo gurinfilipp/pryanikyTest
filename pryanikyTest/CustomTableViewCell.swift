@@ -8,6 +8,8 @@
 import UIKit
 import PinLayout
 
+//protocol _CellData
+
 class CustomTableViewCell: UITableViewCell {
     
     private let titleLabel = UILabel()
