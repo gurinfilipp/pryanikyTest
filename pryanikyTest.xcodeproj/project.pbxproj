@@ -3,27 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47ABFD0FB4ED434600CF08E0 /* Pods_pryanikyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3ACB635354E62A6FE4FBE84 /* Pods_pryanikyTest.framework */; };
 		D4774EEF26777F4D005A1B99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774EEE26777F4D005A1B99 /* AppDelegate.swift */; };
-		D4774EF126777F4D005A1B99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774EF026777F4D005A1B99 /* SceneDelegate.swift */; };
-		D4774EF326777F4D005A1B99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774EF226777F4D005A1B99 /* ViewController.swift */; };
-		D4774EF626777F4D005A1B99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4774EF426777F4D005A1B99 /* Main.storyboard */; };
+		D4774EF326777F4D005A1B99 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774EF226777F4D005A1B99 /* MainViewController.swift */; };
 		D4774EF826777F51005A1B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4774EF726777F51005A1B99 /* Assets.xcassets */; };
 		D4774EFB26777F51005A1B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4774EF926777F51005A1B99 /* LaunchScreen.storyboard */; };
+		D4774F0F26778917005A1B99 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774F0E26778917005A1B99 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F308847E3F82709A99536D7 /* Pods-pryanikyTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pryanikyTest.debug.xcconfig"; path = "Target Support Files/Pods-pryanikyTest/Pods-pryanikyTest.debug.xcconfig"; sourceTree = "<group>"; };
 		D4774EEB26777F4D005A1B99 /* pryanikyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pryanikyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4774EEE26777F4D005A1B99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4774EF026777F4D005A1B99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D4774EF226777F4D005A1B99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D4774EF526777F4D005A1B99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4774EF226777F4D005A1B99 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D4774EF726777F51005A1B99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4774EFA26777F51005A1B99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4774EFC26777F51005A1B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4774F0E26778917005A1B99 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		E89F84AD5E10E2C3D71B6ADB /* Pods-pryanikyTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pryanikyTest.release.xcconfig"; path = "Target Support Files/Pods-pryanikyTest/Pods-pryanikyTest.release.xcconfig"; sourceTree = "<group>"; };
+		F3ACB635354E62A6FE4FBE84 /* Pods_pryanikyTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pryanikyTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47ABFD0FB4ED434600CF08E0 /* Pods_pryanikyTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13E079230EFBC2B40BFF3030 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F308847E3F82709A99536D7 /* Pods-pryanikyTest.debug.xcconfig */,
+				E89F84AD5E10E2C3D71B6ADB /* Pods-pryanikyTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		159B8DD4AAE3B3EA1CCDAF0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3ACB635354E62A6FE4FBE84 /* Pods_pryanikyTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D4774EE226777F4D005A1B99 = {
 			isa = PBXGroup;
 			children = (
 				D4774EED26777F4D005A1B99 /* pryanikyTest */,
 				D4774EEC26777F4D005A1B99 /* Products */,
+				13E079230EFBC2B40BFF3030 /* Pods */,
+				159B8DD4AAE3B3EA1CCDAF0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,12 +79,11 @@
 			isa = PBXGroup;
 			children = (
 				D4774EEE26777F4D005A1B99 /* AppDelegate.swift */,
-				D4774EF026777F4D005A1B99 /* SceneDelegate.swift */,
-				D4774EF226777F4D005A1B99 /* ViewController.swift */,
-				D4774EF426777F4D005A1B99 /* Main.storyboard */,
+				D4774EF226777F4D005A1B99 /* MainViewController.swift */,
 				D4774EF726777F51005A1B99 /* Assets.xcassets */,
 				D4774EF926777F51005A1B99 /* LaunchScreen.storyboard */,
 				D4774EFC26777F51005A1B99 /* Info.plist */,
+				D4774F0E26778917005A1B99 /* CustomTableViewCell.swift */,
 			);
 			path = pryanikyTest;
 			sourceTree = "<group>";
@@ -74,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4774EFF26777F51005A1B99 /* Build configuration list for PBXNativeTarget "pryanikyTest" */;
 			buildPhases = (
+				0F82E3948AB1A33B487F28DD /* [CP] Check Pods Manifest.lock */,
 				D4774EE726777F4D005A1B99 /* Sources */,
 				D4774EE826777F4D005A1B99 /* Frameworks */,
 				D4774EE926777F4D005A1B99 /* Resources */,
+				910409F1A5ACCB61E8EC5AF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,34 +149,67 @@
 			files = (
 				D4774EFB26777F51005A1B99 /* LaunchScreen.storyboard in Resources */,
 				D4774EF826777F51005A1B99 /* Assets.xcassets in Resources */,
-				D4774EF626777F4D005A1B99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F82E3948AB1A33B487F28DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pryanikyTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		910409F1A5ACCB61E8EC5AF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pryanikyTest/Pods-pryanikyTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pryanikyTest/Pods-pryanikyTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pryanikyTest/Pods-pryanikyTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4774EE726777F4D005A1B99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4774EF326777F4D005A1B99 /* ViewController.swift in Sources */,
+				D4774F0F26778917005A1B99 /* CustomTableViewCell.swift in Sources */,
+				D4774EF326777F4D005A1B99 /* MainViewController.swift in Sources */,
 				D4774EEF26777F4D005A1B99 /* AppDelegate.swift in Sources */,
-				D4774EF126777F4D005A1B99 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D4774EF426777F4D005A1B99 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4774EF526777F4D005A1B99 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D4774EF926777F51005A1B99 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +339,7 @@
 		};
 		D4774F0026777F51005A1B99 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F308847E3F82709A99536D7 /* Pods-pryanikyTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +359,7 @@
 		};
 		D4774F0126777F51005A1B99 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E89F84AD5E10E2C3D71B6ADB /* Pods-pryanikyTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
