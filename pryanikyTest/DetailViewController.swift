@@ -12,15 +12,18 @@ class DetailViewController: UIViewController {
     private var text: String
     private var imageURL: String?
     
+    
     private let label = UILabel()
     private let logoImageView = UIImageView()
     
-    init(text: String, imageURL: String?) {
+    init(title: String, text: String, imageURL: String?) {
+        
         self.text = text
-        if let imageUrl = imageURL {
+        if imageURL != nil {
             self.imageURL = imageURL
         }
         super.init(nibName: nil, bundle: nil)
+        self.title = title
     }
     
     required init?(coder: NSCoder) {
@@ -29,12 +32,12 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = .white
         
         setupTextField()
         
         guard let imageURL = self.imageURL else { return }
-        print(imageURL)
         setupLogoImageView(with: imageURL)
         
     }
@@ -43,8 +46,7 @@ class DetailViewController: UIViewController {
         setupLayout()
     }
     
-    func setupLayout() { // pin only
-        //imageView.pin.vCenter(120).hCenter().width(200).height(200).sizeToFit()
+    func setupLayout() {
         logoImageView.pin.hCenter().vCenter().width(250).height(250)
         label.pin.hCenter().vCenter(-300).width(view.bounds.width).sizeToFit(.width)
     }

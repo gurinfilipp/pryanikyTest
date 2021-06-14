@@ -104,11 +104,26 @@ extension MainViewController: UITableViewDataSource {
         let chosenData = data[indexPath.row]
         switch chosenData.name {
         case "hz":
-            navigationController?.pushViewController(DetailViewController(text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
+            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
         case "picture":
-            navigationController?.pushViewController(DetailViewController(text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
+            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
         case "selector":
             print("selector")
+//            let alertController = UIAlertController(title: "Выберете опцию", message: "Выберите", preferredStyle: .actionSheet)
+//            var variants = chosenData.data.variants.
+//            var actions = [UIAlertAction]()
+//            for variant in variants. {
+//                actions.append(i)
+//            }
+    
+//
+//
+//            print(variants)
+//
+//
+//            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+//            alertController.addAction(cancelAction)
+//            present(alertController, animated: true, completion: nil)
         default:
             print("default")
         }
