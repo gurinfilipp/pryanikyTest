@@ -13,6 +13,8 @@
 		D4774EF826777F51005A1B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4774EF726777F51005A1B99 /* Assets.xcassets */; };
 		D4774EFB26777F51005A1B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4774EF926777F51005A1B99 /* LaunchScreen.storyboard */; };
 		D4774F0F26778917005A1B99 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774F0E26778917005A1B99 /* CustomTableViewCell.swift */; };
+		D4774F122677945E005A1B99 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774F112677945E005A1B99 /* Data.swift */; };
+		D4774F1B26779E48005A1B99 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4774F1A26779E48005A1B99 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D4774EFA26777F51005A1B99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4774EFC26777F51005A1B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4774F0E26778917005A1B99 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		D4774F112677945E005A1B99 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		D4774F1A26779E48005A1B99 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E89F84AD5E10E2C3D71B6ADB /* Pods-pryanikyTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pryanikyTest.release.xcconfig"; path = "Target Support Files/Pods-pryanikyTest/Pods-pryanikyTest.release.xcconfig"; sourceTree = "<group>"; };
 		F3ACB635354E62A6FE4FBE84 /* Pods_pryanikyTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pryanikyTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +88,8 @@
 				D4774EF926777F51005A1B99 /* LaunchScreen.storyboard */,
 				D4774EFC26777F51005A1B99 /* Info.plist */,
 				D4774F0E26778917005A1B99 /* CustomTableViewCell.swift */,
+				D4774F112677945E005A1B99 /* Data.swift */,
+				D4774F1A26779E48005A1B99 /* NetworkManager.swift */,
 			);
 			path = pryanikyTest;
 			sourceTree = "<group>";
@@ -203,7 +209,9 @@
 			files = (
 				D4774F0F26778917005A1B99 /* CustomTableViewCell.swift in Sources */,
 				D4774EF326777F4D005A1B99 /* MainViewController.swift in Sources */,
+				D4774F1B26779E48005A1B99 /* NetworkManager.swift in Sources */,
 				D4774EEF26777F4D005A1B99 /* AppDelegate.swift in Sources */,
+				D4774F122677945E005A1B99 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

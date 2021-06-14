@@ -10,7 +10,9 @@ import PinLayout
 
 class MainViewController: UIViewController {
 
-    private var data = ["Hello", "Hello1", "Hello2", "Hello3", "Hello4"]
+//    private var data = ["Hello", "Hello1", "Hello2", "Hello3", "Hello4"]
+   // private var data1 = [GlobalData].self
+    private var data = [GlobalData]()
     
    private let dataTableView: UITableView = {
        let tableView = UITableView()
@@ -25,11 +27,30 @@ class MainViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "PryanikyTest"
-        
-      
+
+        setupTableView()
 
         
-        setupTableView()
+        guard let url = URL(string: "https://pryaniky.com/static/json/sample.json") else { return }
+        let urlSession = URLSession.shared
+        urlSession.dataTask(with: url) { (data, _, error) in
+            guard let data = data else  { return }
+          
+                do {
+                    let json = try JSONDecoder().decode(GlobalJsonData.self, from: data)
+                    self.data = json.data
+                    DispatchQueue.main.async {
+                        self.dataTableView.reloadData()
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+        }.resume()
+        
+        
+        
+        
         
     }
 
@@ -59,7 +80,10 @@ class MainViewController: UIViewController {
     
    @objc
     private func didPullRefresh() {
-        print("wow")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.dataTableView.refreshControl?.endRefreshing()
+        }
+        
     }
     
     
@@ -67,7 +91,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+       return data.count
+      //  return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,7 +100,8 @@ extension MainViewController: UITableViewDataSource {
             return .init()
         }
         
-        cell.configure(with: data[indexPath.row])
+        cell.configure(with: data[indexPath.row].name)
+        //cell.configure(with: data1[indexPath.row].name)
         
         return cell
     }

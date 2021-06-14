@@ -7,6 +7,7 @@ target 'pryanikyTest' do
 
 pod 'PinLayout'
 pod 'Moya'
+pod 'AnyCodable-FlightSchool', '~> 0.6.0'
 
   # Pods for pryanikyTest
 

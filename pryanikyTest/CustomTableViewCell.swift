@@ -9,7 +9,7 @@ import UIKit
 import PinLayout
 
 class CustomTableViewCell: UITableViewCell {
-
+    
     private let titleLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -23,7 +23,7 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     
-   private func setup() {
+    private func setup() {
         //titleLabel.backgroundColor = .yellow
         
         
@@ -40,7 +40,7 @@ class CustomTableViewCell: UITableViewCell {
         contentView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
         contentView.layer.shadowOpacity = 0.8
         contentView.layer.cornerRadius = 8
-    contentView.backgroundColor = UIColor.white
+        contentView.backgroundColor = UIColor.white
         
         selectionStyle = .none
     }
@@ -60,8 +60,8 @@ class CustomTableViewCell: UITableViewCell {
         
     }
     
-    func configure(with string: String) {
-        titleLabel.text = string
+    func configure(with name: String) {
+        titleLabel.text = name
     }
     
 }
