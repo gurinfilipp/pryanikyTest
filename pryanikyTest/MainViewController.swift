@@ -10,9 +10,9 @@ import PinLayout
 
 class MainViewController: UIViewController {
 
-//    private var data = ["Hello", "Hello1", "Hello2", "Hello3", "Hello4"]
-   // private var data1 = [GlobalData].self
+
     private var data = [GlobalData]()
+    private var url = "https://pryaniky.com/static/json/sample.json"
     
    private let dataTableView: UITableView = {
        let tableView = UITableView()
@@ -30,33 +30,22 @@ class MainViewController: UIViewController {
 
         setupTableView()
 
-        
-        guard let url = URL(string: "https://pryaniky.com/static/json/sample.json") else { return }
-        let urlSession = URLSession.shared
-        urlSession.dataTask(with: url) { (data, _, error) in
-            guard let data = data else  { return }
-          
-                do {
-                    let json = try JSONDecoder().decode(GlobalJsonData.self, from: data)
-                    self.data = json.data
-                    DispatchQueue.main.async {
-                        self.dataTableView.reloadData()
-                    }
-                    
-                } catch {
-                    print(error)
-                }
-        }.resume()
-        
-        
-        
-        
+        fetchDataForCells()
         
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupLayout()
+    }
+    
+    private func fetchDataForCells() {
+        NetworkManager.fetchData(url: url) { (data) in
+            self.data = data
+            DispatchQueue.main.async {
+                self.dataTableView.reloadData()
+            }
+        }
     }
     
     private func setupLayout() {
@@ -80,10 +69,12 @@ class MainViewController: UIViewController {
     
    @objc
     private func didPullRefresh() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.dataTableView.refreshControl?.endRefreshing()
-        }
-        
+        let group = DispatchGroup()
+        group.enter()
+        fetchDataForCells()
+        group.leave()
+        group.wait()
+        dataTableView.refreshControl?.endRefreshing()
     }
     
     
@@ -92,17 +83,13 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return data.count
-      //  return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? CustomTableViewCell else {
             return .init()
         }
-        
         cell.configure(with: data[indexPath.row].name)
-        //cell.configure(with: data1[indexPath.row].name)
-        
         return cell
     }
     
