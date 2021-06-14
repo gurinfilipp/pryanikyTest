@@ -17,6 +17,7 @@ var window: UIWindow?
         let navigationController = UINavigationController(rootViewController: MainViewController())
         navigationController.navigationBar.tintColor = .black
         
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

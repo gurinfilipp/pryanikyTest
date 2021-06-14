@@ -32,7 +32,8 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        
         view.backgroundColor = .white
         
         setupTextField()
