@@ -104,11 +104,9 @@ extension MainViewController: UITableViewDataSource {
         let chosenData = data[indexPath.row]
         switch chosenData.name {
         case "hz":
-            print("hz")
-            //navigationController?.present(DetailViewController(text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true, completion: nil)
             navigationController?.pushViewController(DetailViewController(text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
         case "picture":
-            print("picture")
+            navigationController?.pushViewController(DetailViewController(text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
         case "selector":
             print("selector")
         default:

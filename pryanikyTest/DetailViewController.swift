@@ -33,8 +33,9 @@ class DetailViewController: UIViewController {
         
         setupTextField()
         
-        //guard let imageURL = self.imageURL else { return }
-        //setupImageView(with: imageURL!)
+        guard let imageURL = self.imageURL else { return }
+        print(imageURL)
+        setupLogoImageView(with: imageURL)
         
     }
     override func viewDidLayoutSubviews() {
@@ -44,7 +45,7 @@ class DetailViewController: UIViewController {
     
     func setupLayout() { // pin only
         //imageView.pin.vCenter(120).hCenter().width(200).height(200).sizeToFit()
-     //   logoImageView.pin.all()
+        logoImageView.pin.hCenter().vCenter().width(250).height(250)
         label.pin.hCenter().vCenter(-300).width(view.bounds.width).sizeToFit(.width)
     }
 
@@ -52,14 +53,11 @@ class DetailViewController: UIViewController {
         view.addSubview(label)
         label.font = .systemFont(ofSize: 28, weight: .semibold)
         label.textAlignment = .center
-      //  textField.textColor = .white
-        label.backgroundColor = .orange
         label.text = self.text
     }
     
-    func setupImageView(with url: String) {
+    func setupLogoImageView(with url: String) {
         view.addSubview(logoImageView)
-        logoImageView.backgroundColor = .orange
         logoImageView.contentMode = .scaleAspectFit
         
         NetworkManager.fetchImage(url: self.imageURL ?? "") { (image) in
