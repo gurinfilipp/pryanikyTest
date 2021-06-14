@@ -8,11 +8,14 @@
 import UIKit
 import PinLayout
 
+
+
+private var url = "https://pryaniky.com/static/json/sample.json"
+
 class MainViewController: UIViewController {
 
 
     private var data = [GlobalData]()
-    private var url = "https://pryaniky.com/static/json/sample.json"
     
    private let dataTableView: UITableView = {
        let tableView = UITableView()
@@ -97,6 +100,21 @@ extension MainViewController: UITableViewDataSource {
         return 120
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chosenData = data[indexPath.row]
+        switch chosenData.name {
+        case "hz":
+            print("hz")
+            //navigationController?.present(DetailViewController(text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true, completion: nil)
+            navigationController?.pushViewController(DetailViewController(text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
+        case "picture":
+            print("picture")
+        case "selector":
+            print("selector")
+        default:
+            print("default")
+        }
+    }
   
     
 }
