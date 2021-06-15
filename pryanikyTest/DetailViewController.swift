@@ -9,16 +9,13 @@ import UIKit
 import Kingfisher
 
 class DetailViewController: UIViewController {
-
+    
     private var text: String
     private var imageURL: String?
-    
-    
     private let label = UILabel()
     private let logoImageView = UIImageView()
     
     init(title: String, text: String, imageURL: String?) {
-        
         self.text = text
         if imageURL != nil {
             self.imageURL = imageURL
@@ -33,16 +30,12 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         view.backgroundColor = .white
-        
         setupTextField()
-        
         guard let imageURL = self.imageURL else { return }
         setupLogoImageView(with: imageURL)
-        
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupLayout()
@@ -52,7 +45,7 @@ class DetailViewController: UIViewController {
         logoImageView.pin.hCenter().vCenter().width(250).height(250)
         label.pin.hCenter().vCenter(-300).width(view.bounds.width).sizeToFit(.width)
     }
-
+    
     func setupTextField() {
         view.addSubview(label)
         label.font = .systemFont(ofSize: 28, weight: .semibold)
@@ -63,13 +56,6 @@ class DetailViewController: UIViewController {
     func setupLogoImageView(with url: String) {
         view.addSubview(logoImageView)
         logoImageView.kf.setImage(with: URL(string: url))
-        
-///        logoImageView.contentMode = .scaleAspectFit
-///
-///       NetworkManager.fetchImage(url: self.imageURL ?? "") { (image) in
-///          self.logoImageView.image = image
-///        }
-        
     }
     
 }

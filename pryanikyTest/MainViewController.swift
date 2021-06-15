@@ -11,28 +11,28 @@ import PinLayout
 private var url = "https://pryaniky.com/static/json/sample.json"
 
 class MainViewController: UIViewController {
-
-
+    
+    
     private var data = [GlobalData]()
     private var dataToShow = [String]()
     
-   private let dataTableView: UITableView = {
-       let tableView = UITableView()
+    private let dataTableView: UITableView = {
+        let tableView = UITableView()
         
         tableView.tableFooterView = UIView()
         return tableView
     }()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         title = "PryanikyTest"
-
+        
         setupTableView()
-
+        
         fetchDataForCells()
-
+        
         
     }
     
@@ -41,9 +41,9 @@ class MainViewController: UIViewController {
         
         
         for i in 0...numberOfCells - 1 {
-        if self.data[i].name == dataToShow[i] {
-            print("ok")
-        }
+            if self.data[i].name == dataToShow[i] {
+                print("ok")
+            }
         }
         
         // тут сравнивать датату шоу и обычную дату и менять местами если что
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         super.viewWillDisappear(true)
         navigationController?.navigationBar.prefersLargeTitles = false
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupLayout()
@@ -72,15 +72,15 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 self.dataTableView.reloadData()
             }
-   
+            
         }
     }
     
     private func setupLayout() {
         dataTableView.pin.all()
-    
+        
     }
-
+    
     private func setupTableView() {
         dataTableView.delegate = self
         dataTableView.dataSource = self
@@ -95,7 +95,7 @@ class MainViewController: UIViewController {
         
     }
     
-   @objc
+    @objc
     private func didPullRefresh() {
         let group = DispatchGroup()
         group.enter()
@@ -134,21 +134,21 @@ extension MainViewController: UITableViewDataSource {
         case "picture":
             navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
         case "selector":
-   
-
+            
+            
             guard let variants = chosenData.data.variants else { return }
             let numberOfVariants = variants.count
-
+            
             let alertController = UIAlertController(title: "Выберете опцию", message: nil, preferredStyle: .actionSheet)
-
+            
             for variantNumber in 0...numberOfVariants - 1 {
                 let variantId = String(variantNumber + 1)
                 alertController.addAction(UIAlertAction(title: variantId, style: .default, handler: { _ in
                     self.navigationController?.pushViewController(DetailViewController(title: variantId, text: variants[variantNumber].text ?? "", imageURL: nil), animated: true)
                 }))
-
+                
             }
-
+            
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             present(alertController, animated: true, completion: nil)
@@ -156,8 +156,8 @@ extension MainViewController: UITableViewDataSource {
             return
         }
     }
-  
-    }
+    
+}
 
 
 extension MainViewController: UITableViewDelegate {
