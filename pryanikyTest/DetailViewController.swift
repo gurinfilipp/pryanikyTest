@@ -64,11 +64,11 @@ class DetailViewController: UIViewController {
         view.addSubview(logoImageView)
         logoImageView.kf.setImage(with: URL(string: url))
         
-//        logoImageView.contentMode = .scaleAspectFit
-//
-//        NetworkManager.fetchImage(url: self.imageURL ?? "") { (image) in
-//            self.logoImageView.image = image
-//        }
+///        logoImageView.contentMode = .scaleAspectFit
+///
+///       NetworkManager.fetchImage(url: self.imageURL ?? "") { (image) in
+///          self.logoImageView.image = image
+///        }
         
     }
     

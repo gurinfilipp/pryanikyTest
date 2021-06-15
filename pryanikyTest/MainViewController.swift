@@ -65,7 +65,7 @@ class MainViewController: UIViewController {
     }
     
     private func fetchDataForCells() {
-        NetworkManager.fetchData(url: url) {  (data) in
+        NetworkManager.fetchData(url: "https://pryaniky.com/static/json/sample.json") {  (data) in
             self.dataToShow = data.view
             self.data = data.data
             
