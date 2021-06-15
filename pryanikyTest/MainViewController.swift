@@ -12,7 +12,6 @@ private var url = "https://pryaniky.com/static/json/sample.json"
 
 class MainViewController: UIViewController {
     
-    
     private var data = [GlobalData]()
     private var dataToShow = [String]()
     
@@ -23,31 +22,25 @@ class MainViewController: UIViewController {
         return tableView
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "PryanikyTest"
-        
         setupTableView()
-        
         fetchDataForCells()
-        
-        
     }
     
-    func compare() {
-        let numberOfCells = dataToShow.count
-        
-        
-        for i in 0...numberOfCells - 1 {
-            if self.data[i].name == dataToShow[i] {
-                print("ok")
-            }
-        }
-        
-        // тут сравнивать датату шоу и обычную дату и менять местами если что
-    }
+//    func compare() {
+//        let numberOfCells = dataToShow.count
+//
+//
+//        for i in 0...numberOfCells - 1 {
+//            if self.data[i].name == dataToShow[i] {
+//                print("ok")
+//            }
+//        }
+//
+//        // тут сравнивать датату шоу и обычную дату и менять местами если что
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -64,21 +57,8 @@ class MainViewController: UIViewController {
         setupLayout()
     }
     
-    private func fetchDataForCells() {
-        NetworkManager.fetchData(url: "https://pryaniky.com/static/json/sample.json") {  (data) in
-            self.dataToShow = data.view
-            self.data = data.data
-            
-            DispatchQueue.main.async {
-                self.dataTableView.reloadData()
-            }
-            
-        }
-    }
-    
     private func setupLayout() {
         dataTableView.pin.all()
-        
     }
     
     private func setupTableView() {
@@ -92,9 +72,19 @@ class MainViewController: UIViewController {
         dataTableView.refreshControl = refreshControl
         
         view.addSubview(dataTableView)
-        
     }
     
+    private func fetchDataForCells() {
+        NetworkManager.fetchData(url: url) {  (data) in
+            self.dataToShow = data.view
+            self.data = data.data
+            DispatchQueue.main.async {
+                self.dataTableView.reloadData()
+            }
+        }
+    }
+    
+
     @objc
     private func didPullRefresh() {
         let group = DispatchGroup()
@@ -104,8 +94,6 @@ class MainViewController: UIViewController {
         group.wait()
         dataTableView.refreshControl?.endRefreshing()
     }
-    
-    
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -134,8 +122,7 @@ extension MainViewController: UITableViewDataSource {
         case "picture":
             navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
         case "selector":
-            
-            
+
             guard let variants = chosenData.data.variants else { return }
             let numberOfVariants = variants.count
             
@@ -156,11 +143,8 @@ extension MainViewController: UITableViewDataSource {
             return
         }
     }
-    
 }
 
 
-extension MainViewController: UITableViewDelegate {
-    
-}
+extension MainViewController: UITableViewDelegate {}
 
