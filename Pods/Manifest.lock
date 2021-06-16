@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - AnyCodable-FlightSchool (0.6.0)
+  - Kingfisher (6.3.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -9,6 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - AnyCodable-FlightSchool (~> 0.6.0)
+  - Kingfisher
   - Moya
   - PinLayout
 
@@ -16,15 +18,17 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AnyCodable-FlightSchool
+    - Kingfisher
     - Moya
     - PinLayout
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AnyCodable-FlightSchool: 7f109e39278ee0c6d02506530e930e7cff1aa07c
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   PinLayout: e50e9a748b632905fca6e67043ea4b05d6c92186
 
-PODFILE CHECKSUM: 9a1caa7acaba8a5fa9c205f16cfdedccc1e1adf0
+PODFILE CHECKSUM: 52b05286b21d7bd4af9f93c0c41f9f1c25aad0c7
 
 COCOAPODS: 1.10.1

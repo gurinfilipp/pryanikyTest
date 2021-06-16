@@ -14,7 +14,6 @@ class CustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         setup()
     }
     
@@ -24,15 +23,8 @@ class CustomTableViewCell: UITableViewCell {
     
     
     private func setup() {
-        //titleLabel.backgroundColor = .yellow
-        
-        
-        
-        
         titleLabel.font = .systemFont(ofSize: 28, weight: .semibold)
-        
         contentView.addSubview(titleLabel)
-        
         backgroundColor = UIColor.white
         
         contentView.layer.shadowColor = UIColor.black.cgColor
@@ -41,7 +33,6 @@ class CustomTableViewCell: UITableViewCell {
         contentView.layer.shadowOpacity = 0.8
         contentView.layer.cornerRadius = 8
         contentView.backgroundColor = UIColor.white
-        
         selectionStyle = .none
     }
     
