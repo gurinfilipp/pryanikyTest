@@ -11,14 +11,11 @@ import PinLayout
 private var url = "https://pryaniky.com/static/json/sample.json"
 
 class MainViewController: UIViewController {
-    
-    private var data = [GlobalData]()
-    private var dataToShow = [String]()
+
     private var dataSorted = [GlobalData]()
     
     private let dataTableView: UITableView = {
         let tableView = UITableView()
-        
         tableView.tableFooterView = UIView()
         return tableView
     }()
@@ -28,10 +25,9 @@ class MainViewController: UIViewController {
         title = "PryanikyTest"
         setupTableView()
         fetchDataForCells()
-        
     }
     
-    func sortingData(_data: [GlobalData], sortingArray: [String]) -> [GlobalData] {
+    func sortingData(data: [GlobalData], sortingArray: [String]) -> [GlobalData] {
         var dictionary = [String: GlobalData]()
         data.forEach {
             dictionary[$0.name] = $0
@@ -39,10 +35,7 @@ class MainViewController: UIViewController {
         let newData = sortingArray.compactMap {
             dictionary[$0]
         }
-        
-        
-        print(newData)
-        print(newData.count)
+
         return newData
     }
     
@@ -80,10 +73,11 @@ class MainViewController: UIViewController {
     
     private func fetchDataForCells() {
         NetworkManager.fetchData(url: url) {  (data) in
-            self.dataToShow = data.view
-            self.data = data.data
+
+            let dataToShow = data.data
+            let dataOrder = data.view
             
-            let newData = self.sortingData(_data: self.data, sortingArray: self.dataToShow)
+            let newData = self.sortingData(data: dataToShow, sortingArray: dataOrder)
             self.dataSorted = newData
             
             DispatchQueue.main.async {

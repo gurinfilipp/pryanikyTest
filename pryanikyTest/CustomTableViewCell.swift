@@ -21,7 +21,6 @@ class CustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func setup() {
         titleLabel.font = .systemFont(ofSize: 28, weight: .semibold)
         contentView.addSubview(titleLabel)

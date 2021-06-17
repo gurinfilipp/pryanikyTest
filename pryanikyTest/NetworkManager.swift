@@ -19,6 +19,7 @@ class NetworkManager {
         let request = AF.request(url)
         request.responseDecodable(of: GlobalJsonData.self) { (response) in
             guard let data = response.value else { return }
+            
             completion(data)
         }
     }
