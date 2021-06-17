@@ -5,9 +5,6 @@
 //  Created by Philip on 14.06.2021.
 //
 
-
-
-
 struct GlobalJsonData: Decodable {
     let data: [GlobalData]
     let view: [String]

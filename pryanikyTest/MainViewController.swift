@@ -73,7 +73,6 @@ class MainViewController: UIViewController {
     
     private func fetchDataForCells() {
         NetworkManager.fetchData(url: url) {  (data) in
-
             let dataToShow = data.data
             let dataOrder = data.view
             
@@ -102,7 +101,7 @@ class MainViewController: UIViewController {
                     for variantNumber in 0...numberOfVariants - 1 {
                         let variantId = String(variantNumber + 1)
                         alertController.addAction(UIAlertAction(title: variantId, style: .default, handler: { _ in
-                            self.navigationController?.pushViewController(DetailViewController(title: variantId, text: array[variantNumber].text ?? "", imageURL: nil), animated: true)
+                            self.pushDetailVC(title: variantId, text: array[variantNumber].text ?? "", imageURL: nil)
                         }))
                     }
         
@@ -141,8 +140,7 @@ extension MainViewController: UITableViewDataSource {
         } else if let variants = chosenData.data.variants {
             let ac = configureAlertController(with: variants)
             present(ac, animated: true, completion: nil)
-        }
-        else {
+        } else {
             pushDetailVC(title: chosenData.name, text: chosenData.data.text, imageURL: nil)
         }
     }
