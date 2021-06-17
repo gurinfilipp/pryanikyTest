@@ -41,19 +41,19 @@ class DetailViewController: UIViewController {
         setupLayout()
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         logoImageView.pin.hCenter().vCenter().width(250).height(250)
         label.pin.hCenter().vCenter(-300).width(view.bounds.width).sizeToFit(.width)
     }
     
-    func setupTextField() {
+    private func setupTextField() {
         view.addSubview(label)
         label.font = .systemFont(ofSize: 28, weight: .semibold)
         label.textAlignment = .center
         label.text = self.text
     }
     
-    func setupLogoImageView(with url: String) {
+    private func setupLogoImageView(with url: String) {
         view.addSubview(logoImageView)
         logoImageView.kf.setImage(with: URL(string: url))
     }

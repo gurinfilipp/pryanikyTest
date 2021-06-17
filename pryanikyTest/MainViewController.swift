@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
         fetchDataForCells()
     }
     
-    func sortingData(data: [GlobalData], sortingArray: [String]) -> [GlobalData] {
+    private func sortingData(data: [GlobalData], sortingArray: [String]) -> [GlobalData] {
         var dictionary = [String: GlobalData]()
         data.forEach {
             dictionary[$0.name] = $0
