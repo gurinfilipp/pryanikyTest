@@ -28,9 +28,6 @@ class MainViewController: UIViewController {
         title = "PryanikyTest"
         setupTableView()
         fetchDataForCells()
-        DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
-            self.sortingData(_data: self.data, sortingArray: self.dataToShow)
-        }
         
     }
     
@@ -85,6 +82,10 @@ class MainViewController: UIViewController {
         NetworkManager.fetchData(url: url) {  (data) in
             self.dataToShow = data.view
             self.data = data.data
+            
+            let newData = self.sortingData(_data: self.data, sortingArray: self.dataToShow)
+            self.dataSorted = newData
+            
             DispatchQueue.main.async {
                 self.dataTableView.reloadData()
             }
@@ -105,14 +106,14 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return dataSorted.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? CustomTableViewCell else {
             return .init()
         }
-        cell.configure(with: data[indexPath.row].name)
+        cell.configure(with: dataSorted[indexPath.row].name)
         
         return cell
     }
@@ -122,7 +123,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chosenData = data[indexPath.row]
+        let chosenData = dataSorted[indexPath.row]
         switch chosenData.name {
         case "hz":
             navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
