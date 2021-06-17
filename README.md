@@ -5,4 +5,4 @@ PryanikyTestApp
 ![Screenshot 4](https://raw.githubusercontent.com/gurinfilipp/pryanikyTest/main/pryanikyTest/Screenshots/selectorCellTapped.png)
 ![Screenshot 5](https://raw.githubusercontent.com/gurinfilipp/pryanikyTest/main/pryanikyTest/Screenshots/selectorAlertTapped.png)
 ![Screenshot 6](https://raw.githubusercontent.com/gurinfilipp/pryanikyTest/main/pryanikyTest/Screenshots/refreshControl.png)
-а
+
