@@ -113,18 +113,14 @@ class MainViewController: UIViewController {
         dataTableView.refreshControl?.endRefreshing()
     }
     
-    func configureAlertController(with array: [Variant]) -> UIAlertController {
-        
+    private func configureAlertController(with array: [Variant]) -> UIAlertController {
                     let numberOfVariants = array.count
-        
                     let alertController = UIAlertController(title: "Выберете опцию", message: nil, preferredStyle: .actionSheet)
-        
                     for variantNumber in 0...numberOfVariants - 1 {
                         let variantId = String(variantNumber + 1)
                         alertController.addAction(UIAlertAction(title: variantId, style: .default, handler: { _ in
                             self.navigationController?.pushViewController(DetailViewController(title: variantId, text: array[variantNumber].text ?? "", imageURL: nil), animated: true)
                         }))
-        
                     }
         
                     let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -154,14 +150,14 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chosenData = dataSorted[indexPath.row]
-        if chosenData.data.url != nil {
-            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
-        } else if chosenData.data.variants != nil {
-            let ac = configureAlertController(with: chosenData.data.variants!)
+        if let url = chosenData.data.url {
+            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: url), animated: true)
+        } else if let variants = chosenData.data.variants {
+            let ac = configureAlertController(with: variants)
             present(ac, animated: true, completion: nil)
         }
         else {
-            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: chosenData.data.url), animated: true)
+            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: nil), animated: true)
         }
     }
 
