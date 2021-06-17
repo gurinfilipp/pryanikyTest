@@ -85,23 +85,6 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-//    guard let variants = chosenData.data.variants else { return }
-//                let numberOfVariants = variants.count
-//
-//                let alertController = UIAlertController(title: "Выберете опцию", message: nil, preferredStyle: .actionSheet)
-//
-//                for variantNumber in 0...numberOfVariants - 1 {
-//                    let variantId = String(variantNumber + 1)
-//                    alertController.addAction(UIAlertAction(title: variantId, style: .default, handler: { _ in
-//                        self.navigationController?.pushViewController(DetailViewController(title: variantId, text: variants[variantNumber].text ?? "", imageURL: nil), animated: true)
-//                    }))
-//
-//                }
-//
-//                let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-//                alertController.addAction(cancelAction)
-//                present(alertController, animated: true, completion: nil)
 
     @objc
     private func didPullRefresh() {
@@ -162,7 +145,6 @@ extension MainViewController: UITableViewDataSource {
     }
 
 }
-
 
 extension MainViewController: UITableViewDelegate {}
 
