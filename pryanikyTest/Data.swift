@@ -6,26 +6,26 @@
 //
 
 
-import AnyCodable
+
 
 struct GlobalJsonData: Decodable {
-    var data: [GlobalData]
-    var view: [String]
+    let data: [GlobalData]
+    let view: [String]
 }
 
-struct GlobalData:Decodable {
-    var name: String
-    var data: DataFields
+struct GlobalData: Decodable {
+    let name: String
+    let data: DataFields
 }
 
-struct DataFields:Decodable {
-    var url: String?
-    var text: String?
-    var selectedId: Int?
-    var variants: [Variant]?
+struct DataFields: Decodable {
+    let url: String?
+    let text: String?
+    let selectedId: Int?
+    let variants: [Variant]?
 }
 
-struct Variant:Decodable {
-    var id: Int?
-    var text: String?
+struct Variant: Decodable {
+    let id: Int?
+    let text: String?
 }

@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     
     private var data = [GlobalData]()
     private var dataToShow = [String]()
+    private var dataSorted = [GlobalData]()
     
     private let dataTableView: UITableView = {
         let tableView = UITableView()
@@ -27,20 +28,26 @@ class MainViewController: UIViewController {
         title = "PryanikyTest"
         setupTableView()
         fetchDataForCells()
+        DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+            self.sortingData(_data: self.data, sortingArray: self.dataToShow)
+        }
+        
     }
     
-//    func compare() {
-//        let numberOfCells = dataToShow.count
-//
-//
-//        for i in 0...numberOfCells - 1 {
-//            if self.data[i].name == dataToShow[i] {
-//                print("ok")
-//            }
-//        }
-//
-//        // тут сравнивать датату шоу и обычную дату и менять местами если что
-//    }
+    func sortingData(_data: [GlobalData], sortingArray: [String]) -> [GlobalData] {
+        var dictionary = [String: GlobalData]()
+        data.forEach {
+            dictionary[$0.name] = $0
+        }
+        let newData = sortingArray.compactMap {
+            dictionary[$0]
+        }
+        
+        
+        print(newData)
+        print(newData.count)
+        return newData
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
