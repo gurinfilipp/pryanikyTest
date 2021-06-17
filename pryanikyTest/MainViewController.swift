@@ -111,6 +111,9 @@ class MainViewController: UIViewController {
                     return alertController
     }
     
+    private func pushDetailVC(title: String, text: String?, imageURL: String?) {
+        navigationController?.pushViewController(DetailViewController(title: title, text: text ?? "", imageURL: imageURL), animated: true)
+    }
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -134,13 +137,13 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chosenData = dataSorted[indexPath.row]
         if let url = chosenData.data.url {
-            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: url), animated: true)
+            pushDetailVC(title: chosenData.name, text: chosenData.data.text, imageURL: url)
         } else if let variants = chosenData.data.variants {
             let ac = configureAlertController(with: variants)
             present(ac, animated: true, completion: nil)
         }
         else {
-            navigationController?.pushViewController(DetailViewController(title: chosenData.name, text: chosenData.data.text ?? "", imageURL: nil), animated: true)
+            pushDetailVC(title: chosenData.name, text: chosenData.data.text, imageURL: nil)
         }
     }
 
